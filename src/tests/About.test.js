@@ -1,6 +1,5 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import RenderWithRouter from './RenderWithRouter';
 import About from '../components/About';
 
@@ -8,7 +7,9 @@ describe('TESTANDO COMPONENTE ABOUT', () => {
   it('Testa se a página contém as informações sobre a Pokédex.', () => {
     RenderWithRouter(<About />);
     const textAbout = screen.getByText('This application simulates a Pokédex,');
+    const textAbout2 = screen.getByText('One can filter Pokémons ');
     expect(textAbout).toBeInTheDocument();
+    expect(textAbout2).toBeInTheDocument();
   });
   it('Testa se a página contém um heading h2 com o texto About Pokédex', () => {
     RenderWithRouter(<About />);
