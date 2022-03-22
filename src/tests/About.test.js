@@ -6,8 +6,8 @@ import About from '../components/About';
 describe('TESTANDO COMPONENTE ABOUT', () => {
   it('Testa se a página contém as informações sobre a Pokédex.', () => {
     RenderWithRouter(<About />);
-    const textAbout = screen.getByText('This application simulates a Pokédex,');
-    const textAbout2 = screen.getByText('One can filter Pokémons ');
+    const textAbout = screen.getByText(/This application simulates a Pokédex,/i);
+    const textAbout2 = screen.getByText(/One can filter Pokémons/i);
     expect(textAbout).toBeInTheDocument();
     expect(textAbout2).toBeInTheDocument();
   });
@@ -20,7 +20,7 @@ describe('TESTANDO COMPONENTE ABOUT', () => {
   });
   it('Testa se a pagina possui a imagem da pokedex', () => {
     RenderWithRouter(<About />);
-    const img = getByRole('img');
-    expect(img).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png');
+    const imgAbout = screen.getByRole('img');
+    expect(imgAbout).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png');
   });
 });
