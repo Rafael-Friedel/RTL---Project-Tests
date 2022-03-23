@@ -13,12 +13,14 @@ describe('TESTANDO COMPONENTE POKEMONDETAILS', () => {
     expect(name).toBeInTheDocument();
     const noLink = screen.queryByRole('link', { name: /more details/i });
     expect(noLink).not.toBeInTheDocument();
-    const sumary = screen.getByRole('heading', { name: /summary/i, level: 2 });
-    expect(sumary).toBeInTheDocument();
+    const sumaryHeading = screen.getByRole('heading', { name: /summary/i, level: 2 });
+    expect(sumaryHeading).toBeInTheDocument();
     const namePokemon = screen.getByTestId('pokemon-name', { name: /pikachu/i });
     const typePokemon = screen.getByTestId('pokemon-type', { name: /electric/i });
     const weightPokemon = screen.getByTestId('pokemon-weight', {
       name: /Average weight: 6.0 kg/i });
+    const sumary = screen.getByText(pokemons[0].summary);
+    expect(sumary).toBeInTheDocument();
     expect(namePokemon).toBeInTheDocument();
     expect(typePokemon).toBeInTheDocument();
     expect(weightPokemon).toBeInTheDocument();
