@@ -7,6 +7,7 @@ import App from '../App';
 
 const testId = 'pokemon-name';
 const nextPokemon = 'next-pokemon';
+const number7 = 7;
 
 describe('TESTANDO COMPONENTE POKEDEX', () => {
   it('Teste se página contém um heading h2 com o texto Encountered pokémons', () => {
@@ -59,6 +60,8 @@ describe('TESTANDO COMPONENTE POKEDEX', () => {
       if (filtro.length > 1) expect(buttonNext).toBeEnabled();
       else expect(buttonNext).toBeDisabled();
     });
+    const buttons = screen.getAllByTestId('pokemon-type-button');
+    expect(buttons).toHaveLength(number7);
   });
   it('Teste se a Pokédex contém um botão para resetar o filtro', () => {
     RenderWithRouter(<App />);
